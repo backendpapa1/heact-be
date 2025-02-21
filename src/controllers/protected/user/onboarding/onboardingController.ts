@@ -169,7 +169,7 @@ class OnboardingController extends BaseControllerClass{
         const saveGenderToUser = await this.userService.updateOne(
           {_id: user?.id},
           {
-            onboarding_phase: EOnboardingPhase.INTEREST,
+            onboarding_phase: EOnboardingPhase.LOOKING_FOR,
             onboarding:{
               ...user?.onboarding,
               gender
