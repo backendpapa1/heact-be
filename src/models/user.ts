@@ -36,7 +36,7 @@ export const UserSchema = new Schema<IUser>({
         onboarding:{
           fullname: {type: String},
           dob:{
-            dob:{type: Date},
+            dob:{type: String},
             astral_sign: {type: String}
           },
           gender:{type: String},
@@ -64,7 +64,7 @@ export const UserSchema = new Schema<IUser>({
             workout: {type: String}
           },
           going_out:{
-            find_me: {type: String}, 
+            find_me: {type: String},
             like_to: {type: String},
             tend_to: {type: String}
           },
@@ -126,7 +126,7 @@ export interface IUser extends Document {
 interface IOnboarding{
   fullname?: string;
   dob:{
-    dob?: Date;
+    dob?: string;
     astral_sign?: string;
   }
   gender?: string;

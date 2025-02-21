@@ -142,7 +142,7 @@ class OnboardingController extends BaseControllerClass{
             onboarding_phase: EOnboardingPhase.GENDER,
             onboarding:{
               dob:{
-                dob: new Date(dob),
+                dob:dob,
                 astral_sign
               }
             }
