@@ -136,6 +136,7 @@ class OnboardingController extends BaseControllerClass{
         const {astral_sign,dob}:dobSchema = req.body;
         const user: IUser = res.locals[USER];
 
+        console.log(astral_sign,' ',dob,'data')
         const saveDOBToUser = await this.userService.updateOne(
           {id: user?.id},
           {
