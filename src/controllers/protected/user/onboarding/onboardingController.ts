@@ -118,6 +118,7 @@ class OnboardingController extends BaseControllerClass{
           {
             onboarding_phase: EOnboardingPhase.DOB,
             onboarding:{
+              ...user?.onboarding,
               fullname: fullname,
             }
           }
@@ -143,6 +144,7 @@ class OnboardingController extends BaseControllerClass{
           {
             onboarding_phase: EOnboardingPhase.GENDER,
             onboarding:{
+              ...user?.onboarding,
               dob:{
                 dob:dob,
                 astral_sign
@@ -169,6 +171,7 @@ class OnboardingController extends BaseControllerClass{
           {
             onboarding_phase: EOnboardingPhase.LOOKING_FOR,
             onboarding:{
+              ...user?.onboarding,
               gender
             }
           }
@@ -191,6 +194,7 @@ class OnboardingController extends BaseControllerClass{
           {
             onboarding_phase: EOnboardingPhase.BIO,
             onboarding:{
+              ...user?.onboarding,
               looking_for
             }
           }
@@ -213,6 +217,7 @@ class OnboardingController extends BaseControllerClass{
           {
             onboarding_phase: EOnboardingPhase.INTEREST,
             onboarding:{
+              ...user?.onboarding,
               bio
             }
           }
@@ -235,6 +240,7 @@ class OnboardingController extends BaseControllerClass{
           {
             onboarding_phase: EOnboardingPhase.HEIGHT,
             onboarding:{
+              ...user?.onboarding,
               interests
             }
           }
@@ -257,6 +263,7 @@ class OnboardingController extends BaseControllerClass{
           {
             onboarding_phase: EOnboardingPhase.EDUCATION,
             onboarding:{
+              ...user?.onboarding,
               height:{
                 value,
                 metric
@@ -282,6 +289,7 @@ class OnboardingController extends BaseControllerClass{
           {
             onboarding_phase: EOnboardingPhase.LANGUAGE,
             onboarding:{
+              ...user?.onboarding,
               education:{
                 cert,
                 school
@@ -307,6 +315,7 @@ class OnboardingController extends BaseControllerClass{
           {
             onboarding_phase: EOnboardingPhase.RELIGION,
             onboarding:{
+              ...user?.onboarding,
               language:{
                 values,
                 primary
@@ -332,6 +341,7 @@ class OnboardingController extends BaseControllerClass{
           {
             onboarding_phase: EOnboardingPhase.FAMILY_PLAN,
             onboarding:{
+              ...user?.onboarding,
               religion
             }
           }
@@ -354,6 +364,7 @@ class OnboardingController extends BaseControllerClass{
           {
             onboarding_phase: EOnboardingPhase.LIFESTYLE,
             onboarding:{
+              ...user?.onboarding,
               family_plan
             }
           }
@@ -376,6 +387,7 @@ class OnboardingController extends BaseControllerClass{
           {
             onboarding_phase: EOnboardingPhase.GOING_OUT,
             onboarding:{
+              ...user?.onboarding,
               lifestyle:{
                 workout,
                 drinking,
@@ -403,6 +415,7 @@ class OnboardingController extends BaseControllerClass{
           {
             onboarding_phase: EOnboardingPhase.WEEKENDS,
             onboarding:{
+              ...user?.onboarding,
               going_out: {
                 find_me,
                 like_to,
@@ -429,6 +442,7 @@ class OnboardingController extends BaseControllerClass{
           {
             onboarding_phase: EOnboardingPhase.PHONE,
             onboarding:{
+              ...user?.onboarding,
               weekends:{
                 weekends_for,
                 saturday_nights_for,
@@ -455,6 +469,7 @@ class OnboardingController extends BaseControllerClass{
           {
             onboarding_phase: EOnboardingPhase.MEDIA,
             onboarding:{
+              ...user?.onboarding,
               m_phone:{
                 type_who,
                 prefer_receiving,
