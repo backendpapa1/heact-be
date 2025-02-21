@@ -192,7 +192,7 @@ class OnboardingController extends BaseControllerClass{
         const saveLookingForToUser = await this.userService.updateOne(
           {_id: user?.id},
           {
-            onboarding_phase: EOnboardingPhase.BIO,
+            onboarding_phase: EOnboardingPhase.INTEREST,
             onboarding:{
               ...user?.onboarding,
               looking_for
@@ -215,7 +215,7 @@ class OnboardingController extends BaseControllerClass{
         const saveBioToUser = await this.userService.updateOne(
           {_id: user?.id},
           {
-            onboarding_phase: EOnboardingPhase.INTEREST,
+            onboarding_phase: EOnboardingPhase.HEIGHT,
             onboarding:{
               ...user?.onboarding,
               bio
@@ -238,7 +238,7 @@ class OnboardingController extends BaseControllerClass{
         const saveInterestsToUser = await this.userService.updateOne(
           {_id: user?.id},
           {
-            onboarding_phase: EOnboardingPhase.HEIGHT,
+            onboarding_phase: EOnboardingPhase.MEDIA,
             onboarding:{
               ...user?.onboarding,
               interests
@@ -246,6 +246,23 @@ class OnboardingController extends BaseControllerClass{
           }
         );
         if(!saveInterestsToUser?.id) throw new Error('unable to save user interests');
+        return this.sendSuccessResponse(res,{message:"interests successfully saved"})
+      }catch(e: any){
+        return this.sendErrorResponse(res,e,this.errorResponseMessage.ACTION_ERROR(e?.message),400);
+      }
+    })
+    this.router.post('/media', async (req,res) => {
+      try{
+
+        const user: IUser = res.locals[USER];
+
+        const saveMediaToUser = await this.userService.updateOne(
+          {_id: user?.id},
+          {
+            onboarding_phase: EOnboardingPhase.BIO,
+          }
+        );
+        if(!saveMediaToUser?.id) throw new Error('unable to save user interests');
         return this.sendSuccessResponse(res,{message:"interests successfully saved"})
       }catch(e: any){
         return this.sendErrorResponse(res,e,this.errorResponseMessage.ACTION_ERROR(e?.message),400);
@@ -287,7 +304,33 @@ class OnboardingController extends BaseControllerClass{
         const saveSchoolToUser = await this.userService.updateOne(
           {_id: user?.id},
           {
-            onboarding_phase: EOnboardingPhase.LANGUAGE,
+            onboarding_phase: EOnboardingPhase.WHERE_DO_YOU_LIVE,
+            onboarding:{
+              ...user?.onboarding,
+              education:{
+                cert,
+                school
+              }
+            }
+          }
+        );
+        if(!saveSchoolToUser?.id) throw new Error('unable to save user education');
+        return this.sendSuccessResponse(res,{message:"education successfully saved"})
+      }catch(e: any){
+        return this.sendErrorResponse(res,e,this.errorResponseMessage.ACTION_ERROR(e?.message),400);
+      }
+    })
+
+    this.router.post('/where-do-you-live', async (req,res) => {
+      try{
+        await educationSchema.parseAsync(req.body);
+        const {cert,school}:educationSchema = req.body;
+        const user: IUser = res.locals[USER];
+
+        const saveSchoolToUser = await this.userService.updateOne(
+          {_id: user?.id},
+          {
+            onboarding_phase: EOnboardingPhase.WHERE_DO_YOU_LIVE,
             onboarding:{
               ...user?.onboarding,
               education:{

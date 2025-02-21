@@ -43,6 +43,7 @@ export const UserSchema = new Schema<IUser>({
           looking_for: {type: String},
           bio:{type: String},
           interests:{type:[String]},
+          where_do_you_live:{type: String},
           height:{
             value:{type: Number},
             metric: {type: String},
@@ -129,6 +130,7 @@ interface IOnboarding{
     dob?: string;
     astral_sign?: string;
   }
+  where_do_you_live: string;
   gender?: string;
   looking_for?: string;
   bio?: string;
