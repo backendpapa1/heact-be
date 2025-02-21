@@ -139,7 +139,7 @@ class OnboardingController extends BaseControllerClass{
 
         console.log(astral_sign,' ',dob,'data')
         const saveDOBToUser = await this.userService.updateOne(
-          {id: user?.id},
+          {_id: user?.id},
           {
             onboarding_phase: EOnboardingPhase.GENDER,
             onboarding:{
@@ -165,7 +165,7 @@ class OnboardingController extends BaseControllerClass{
         const user: IUser = res.locals[USER];
 
         const saveGenderToUser = await this.userService.updateOne(
-          {id: user?.id},
+          {_id: user?.id},
           {
             onboarding_phase: EOnboardingPhase.LOOKING_FOR,
             onboarding:{
@@ -187,7 +187,7 @@ class OnboardingController extends BaseControllerClass{
         const user: IUser = res.locals[USER];
 
         const saveLookingForToUser = await this.userService.updateOne(
-          {id: user?.id},
+          {_id: user?.id},
           {
             onboarding_phase: EOnboardingPhase.BIO,
             onboarding:{
@@ -209,7 +209,7 @@ class OnboardingController extends BaseControllerClass{
         const user: IUser = res.locals[USER];
 
         const saveBioToUser = await this.userService.updateOne(
-          {id: user?.id},
+          {_id: user?.id},
           {
             onboarding_phase: EOnboardingPhase.INTEREST,
             onboarding:{
@@ -231,7 +231,7 @@ class OnboardingController extends BaseControllerClass{
         const user: IUser = res.locals[USER];
 
         const saveInterestsToUser = await this.userService.updateOne(
-          {id: user?.id},
+          {_id: user?.id},
           {
             onboarding_phase: EOnboardingPhase.HEIGHT,
             onboarding:{
@@ -253,7 +253,7 @@ class OnboardingController extends BaseControllerClass{
         const user: IUser = res.locals[USER];
 
         const saveHeightToUser = await this.userService.updateOne(
-          {id: user?.id},
+          {_id: user?.id},
           {
             onboarding_phase: EOnboardingPhase.EDUCATION,
             onboarding:{
@@ -278,7 +278,7 @@ class OnboardingController extends BaseControllerClass{
         const user: IUser = res.locals[USER];
 
         const saveSchoolToUser = await this.userService.updateOne(
-          {id: user?.id},
+          {_id: user?.id},
           {
             onboarding_phase: EOnboardingPhase.LANGUAGE,
             onboarding:{
@@ -303,7 +303,7 @@ class OnboardingController extends BaseControllerClass{
         const user: IUser = res.locals[USER];
 
         const saveHeightToUser = await this.userService.updateOne(
-          {id: user?.id},
+          {_id: user?.id},
           {
             onboarding_phase: EOnboardingPhase.RELIGION,
             onboarding:{
@@ -328,7 +328,7 @@ class OnboardingController extends BaseControllerClass{
         const user: IUser = res.locals[USER];
 
         const saveReligionToUser = await this.userService.updateOne(
-          {id: user?.id},
+          {_id: user?.id},
           {
             onboarding_phase: EOnboardingPhase.FAMILY_PLAN,
             onboarding:{
@@ -350,7 +350,7 @@ class OnboardingController extends BaseControllerClass{
         const user: IUser = res.locals[USER];
 
         const saveFamilyPlanToUser = await this.userService.updateOne(
-          {id: user?.id},
+          {_id: user?.id},
           {
             onboarding_phase: EOnboardingPhase.LIFESTYLE,
             onboarding:{
@@ -372,7 +372,7 @@ class OnboardingController extends BaseControllerClass{
         const user: IUser = res.locals[USER];
 
         const saveLifestyleToUser = await this.userService.updateOne(
-          {id: user?.id},
+          {_id: user?.id},
           {
             onboarding_phase: EOnboardingPhase.GOING_OUT,
             onboarding:{
@@ -399,7 +399,7 @@ class OnboardingController extends BaseControllerClass{
         const user: IUser = res.locals[USER];
 
         const saveGoingOutToUser = await this.userService.updateOne(
-          {id: user?.id},
+          {_id: user?.id},
           {
             onboarding_phase: EOnboardingPhase.WEEKENDS,
             onboarding:{
@@ -425,7 +425,7 @@ class OnboardingController extends BaseControllerClass{
         const user: IUser = res.locals[USER];
 
         const saveWeekendsToUser = await this.userService.updateOne(
-          {id: user?.id},
+          {_id: user?.id},
           {
             onboarding_phase: EOnboardingPhase.PHONE,
             onboarding:{
@@ -451,7 +451,7 @@ class OnboardingController extends BaseControllerClass{
         const user: IUser = res.locals[USER];
 
         const savePhoneToUser = await this.userService.updateOne(
-          {id: user?.id},
+          {_id: user?.id},
           {
             onboarding_phase: EOnboardingPhase.MEDIA,
             onboarding:{
