@@ -122,6 +122,7 @@ class OnboardingController extends BaseControllerClass{
             }
           }
         );
+        console.log(saveFullnameToUser,'SVMN')
 
         if(!saveFullnameToUser?.id) throw new Error('unable to save user fullname');
         return this.sendSuccessResponse(res,{message:"Fullname successfully saved"})
