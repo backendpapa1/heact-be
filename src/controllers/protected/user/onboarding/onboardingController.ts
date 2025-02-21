@@ -8,7 +8,7 @@ const FullnameSchema = z.object({
 })
 
 const dobSchema = z.object({
-  dob: z.date(),
+  dob: z.string(),
   astral_sign: z.string()
 })
 
@@ -30,7 +30,7 @@ const interestsSchema = z.object({
 
 const heightSchema = z.object({
   value: z.number(),
-  metric: z.enum(["cm", "m", "in", "ft", "mm", "dm", "yd"]) 
+  metric: z.enum(["cm", "m", "in", "ft", "mm", "dm", "yd"])
 })
 
 const educationSchema = z.object({
@@ -122,7 +122,7 @@ class OnboardingController extends BaseControllerClass{
             }
           }
         );
-        
+
         if(!saveFullnameToUser?.id) throw new Error('unable to save user fullname');
         return this.sendSuccessResponse(res,{message:"Fullname successfully saved"})
       }catch(e: any){
@@ -440,7 +440,7 @@ class OnboardingController extends BaseControllerClass{
         return this.sendErrorResponse(res,e,this.errorResponseMessage.ACTION_ERROR(e?.message),400);
       }
     })
-    
+
     this.router.post('/phone', async (req,res) => {
       try{
         await phoneSchema.parseAsync(req.body);
