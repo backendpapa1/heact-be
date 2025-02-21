@@ -148,6 +148,7 @@ class OnboardingController extends BaseControllerClass{
             }
           }
         );
+        console.log(saveDOBToUser,'dd')
         if(!saveDOBToUser?.id) throw new Error('unable to save user dob');
         return this.sendSuccessResponse(res,{message:"dob successfully saved"})
       }catch(e: any){
