@@ -33,6 +33,7 @@ export const UserSchema = new Schema<IUser>({
         // is_account_healthy:{type: Boolean,default: false},
         referral_code: {type: String},
         onboarding_phase: {type: String,default: EOnboardingPhase.FULLNAME},
+        is_onboarded:{type:Boolean,default: false},
         onboarding:{
           fullname: {type: String},
           dob:{
@@ -125,6 +126,7 @@ export interface IUser extends Document {
   profile_pics: mongoose.Types.ObjectId;
   onboarding: IOnboarding;
   onboarding_phase?: IOnboardingPhase;
+  is_onboarded: boolean;
 
 }
 

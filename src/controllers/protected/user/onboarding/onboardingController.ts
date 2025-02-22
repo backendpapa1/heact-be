@@ -414,6 +414,7 @@ class OnboardingController extends BaseControllerClass{
           {_id: user?.id},
           {
             onboarding_phase: 'DONE',
+            is_onboarded: true,
             onboarding:{
               ...user?.onboarding,
               family_plan
