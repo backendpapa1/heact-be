@@ -413,7 +413,7 @@ class OnboardingController extends BaseControllerClass{
         const saveFamilyPlanToUser = await this.userService.updateOne(
           {_id: user?.id},
           {
-            onboarding_phase: EOnboardingPhase.LIFESTYLE,
+            onboarding_phase: 'DONE',
             onboarding:{
               ...user?.onboarding,
               family_plan
