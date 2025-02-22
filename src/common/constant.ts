@@ -9,7 +9,7 @@ export const STATUS = {
   COMPLETED:"completed",
   PENDING:"pending"
 };
-export type IOnboardingPhase = 'FULLNAME' | 'DOB' | 'GENDER' | 'LOOKING_FOR' | 'WHERE_DO_YOU_LIVE' | 'BIO' | 'INTEREST' | 'HEIGHT' | 'EDUCATION' | 'LANGUAGE' | 'RELIGION' | 'FAMILY_PLAN' | 'LIFESTYLE' | 'GOING_OUT' | 'WEEKENDS' | 'PHONE' | 'MEDIA' 'LOCATION';
+export type IOnboardingPhase = 'FULLNAME' | 'DOB' | 'GENDER' | 'LOOKING_FOR' | 'WHERE_DO_YOU_LIVE' | 'BIO' | 'INTEREST' | 'HEIGHT' | 'EDUCATION' | 'LANGUAGE' | 'RELIGION' | 'FAMILY_PLAN' | 'LIFESTYLE' | 'GOING_OUT' | 'WEEKENDS' | 'PHONE' | 'MEDIA' | 'LOCATION';
 
 export enum EOnboardingPhase {
   FULLNAME = "FULLNAME",
