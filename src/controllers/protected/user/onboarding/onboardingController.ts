@@ -79,7 +79,7 @@ const phoneSchema = z.object({
 const locationSchema = z.object({
   city: z.string(),
   country: z.string(),
-  address: z.string().optional()
+  address: z.string().optional().nullable()
 })
 
 type phoneSchema = z.infer<typeof phoneSchema>;
