@@ -76,6 +76,12 @@ const phoneSchema = z.object({
   phone_is_always_on: z.string()
 })
 
+const locationSchema = z.object({
+  city: z.string(),
+  country: z.string(),
+  address: z.string().optional()
+})
+
 type phoneSchema = z.infer<typeof phoneSchema>;
 type weekendsSchema = z.infer<typeof weekendsSchema>;
 type goingOutSchema = z.infer<typeof goingOutSchema>;
@@ -91,6 +97,7 @@ type lookingForSchema = z.infer<typeof lookingForSchema>;
 type genderSchema = z.infer<typeof genderSchema>;
 type FullnameSchema = z.infer<typeof FullnameSchema>;
 type dobSchema = z.infer<typeof dobSchema>;
+type locationSchema = z.infer<typeof locationSchema>;
 
 class OnboardingController extends BaseControllerClass{
   constructor(){
@@ -320,28 +327,29 @@ class OnboardingController extends BaseControllerClass{
         return this.sendErrorResponse(res,e,this.errorResponseMessage.ACTION_ERROR(e?.message),400);
       }
     })
-
+// work on this line
     this.router.post('/where-do-you-live', async (req,res) => {
       try{
-        await educationSchema.parseAsync(req.body);
-        const {cert,school}:educationSchema = req.body;
+        await locationSchema.parseAsync(req.body);
+        const {country,address,city}:locationSchema = req.body;
         const user: IUser = res.locals[USER];
 
         const saveSchoolToUser = await this.userService.updateOne(
           {_id: user?.id},
           {
-            onboarding_phase: EOnboardingPhase.WHERE_DO_YOU_LIVE,
+            onboarding_phase: EOnboardingPhase.LANGUAGE,
             onboarding:{
               ...user?.onboarding,
-              education:{
-                cert,
-                school
+              where_do_you_live: {
+                country,
+                city,
+                address
               }
             }
           }
         );
-        if(!saveSchoolToUser?.id) throw new Error('unable to save user education');
-        return this.sendSuccessResponse(res,{message:"education successfully saved"})
+        if(!saveSchoolToUser?.id) throw new Error('unable to save user location');
+        return this.sendSuccessResponse(res,{message:"location successfully saved"})
       }catch(e: any){
         return this.sendErrorResponse(res,e,this.errorResponseMessage.ACTION_ERROR(e?.message),400);
       }
@@ -382,7 +390,7 @@ class OnboardingController extends BaseControllerClass{
         const saveReligionToUser = await this.userService.updateOne(
           {_id: user?.id},
           {
-            onboarding_phase: EOnboardingPhase.FAMILY_PLAN,
+            onboarding_phase: EOnboardingPhase.LIFESTYLE,
             onboarding:{
               ...user?.onboarding,
               religion
@@ -510,7 +518,7 @@ class OnboardingController extends BaseControllerClass{
         const savePhoneToUser = await this.userService.updateOne(
           {_id: user?.id},
           {
-            onboarding_phase: EOnboardingPhase.MEDIA,
+            onboarding_phase: EOnboardingPhase.FAMILY_PLAN,
             onboarding:{
               ...user?.onboarding,
               m_phone:{
