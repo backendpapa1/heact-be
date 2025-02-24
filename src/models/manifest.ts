@@ -1,4 +1,6 @@
 export const MODEL_NAME = {
     USER:"user",
-    MEDIA:"media"
+    MEDIA:"media",
+    INTERACTION:"interaction",
+    MATCH:"match"
 }

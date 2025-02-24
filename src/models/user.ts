@@ -1,5 +1,5 @@
 import mongoose, {Document, model, Schema} from "mongoose";
-
+import paginate from 'mongoose-paginate-v2';
 import { EOnboardingPhase, IOnboardingPhase, STATUS } from "../common/constant";
 import { MODEL_NAME } from "./manifest";
 export const UserSchema = new Schema<IUser>({
@@ -195,18 +195,10 @@ interface IIdentities{
     updated_at: string;
     email?: string;
 }
-interface IBvn{
-    status: string;
-    bvn_reference: string;
-    bvn_flutterwave_id: number;
-    firstname: string;
-    lastname: string;
-    bvn: string;
-    nin: string;
-}
-// interface IWallet{
 
-// }
+
+UserSchema.plugin(paginate)
+
 
 // VoucherSchema.plugin(timeZone, { paths: ['created_at', 'updated_at'] });
 
